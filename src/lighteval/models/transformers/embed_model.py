@@ -323,7 +323,7 @@ class EmbeddingModel(TransformersModel):
         )
 
         docs_processed = []
-        for doc in knowledge_base:
+        for doc in tqdm(knowledge_base, desc="Splitting documents"):
             docs_processed += text_splitter.split_documents([doc])
 
         # Remove duplicates
